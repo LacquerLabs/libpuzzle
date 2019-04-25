@@ -137,7 +137,7 @@ PHP_FUNCTION(puzzle_fill_cvec_from_file)
         puzzle_free_cvec(context, &cvec);
         RETURN_FALSE;
     }
-    RETVAL_STRINGL(cvec.vec, cvec.sizeof_vec, 1);
+    RETVAL_STRINGL(cvec.vec, cvec.sizeof_vec);
     puzzle_free_cvec(context, &cvec);
 }
 /* }}} */
@@ -169,7 +169,7 @@ PHP_FUNCTION(puzzle_compress_cvec)
         RETURN_FALSE;
     }
     RETVAL_STRINGL(compressed_cvec.vec,
-                   compressed_cvec.sizeof_compressed_vec, 1);
+                   compressed_cvec.sizeof_compressed_vec);
     puzzle_free_compressed_cvec(context, &compressed_cvec);
     cvec.vec = NULL;
     puzzle_free_cvec(context, &cvec);    
@@ -202,7 +202,7 @@ PHP_FUNCTION(puzzle_uncompress_cvec)
         puzzle_free_compressed_cvec(context, &compressed_cvec);
         RETURN_FALSE;
     }
-    RETVAL_STRINGL(cvec.vec, cvec.sizeof_vec, 1);
+    RETVAL_STRINGL(cvec.vec, cvec.sizeof_vec);
     puzzle_free_cvec(context, &cvec);
     compressed_cvec.vec = NULL;
     puzzle_free_compressed_cvec(context, &compressed_cvec);    
